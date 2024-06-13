@@ -1,20 +1,19 @@
-import React from 'react';
-import './App.css';
-import Image from './components/image/image'
+import { FC, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import routes from './routes';
 
-function App() {
+const App: FC = () => {
   return (
-    <div>
-    <h1>Trade Hub</h1>
-    <Image
-      src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg"
-      alt = ""
-      width={400}
-      height={400}
-      className="responsive-image"
-    />
-  </div>
-);
-}
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </Suspense>
+    </Router>
+  );
+};
 
 export default App;
