@@ -1,5 +1,5 @@
 import React from 'react';
-import './image.css'; // Optional: For styling
+import './image.css';
 import { ImageComponentProps } from './types';
 
 const Image: React.FC<ImageComponentProps> = ({ src, alt, width = 'auto', height = 'auto', className = '' }) => {
