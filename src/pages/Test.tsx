@@ -8,7 +8,7 @@ const Test: FC = () => {
 
   return (
     <div>
-      <h1>Test Page 1</h1>
+      <h1>Test Page</h1>
       <Button text="Click me" onClick={handleClick} />
     </div>
   );
