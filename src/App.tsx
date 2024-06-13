@@ -1,10 +1,19 @@
-import React from 'react';
-import './App.css';
+import { FC, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import routes from './routes';
 
-function App() {
+const App: FC = () => {
   return (
-    <h1>Trade Hub</h1>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </Suspense>
+    </Router>
   );
-}
+};
 
 export default App;
